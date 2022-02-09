@@ -1,15 +1,18 @@
 import React from "react";
+import Board from "./Board/Board";
+import TurnDisplay from "./TurnDisplay/TurnDisplay";
 
-// TODO: import Board, render board
+// TODO: import Board, render board.
 // TODO: import TurnDisplay, render
 // TODO: render winner if there's one
 
-function App() {
+function Game() {
   return (
-    <div className="App">
-      Debug: Hello World
+    <div className="Game">
+      <Board />
+      <TurnDisplay />
     </div>
   );
 }
 
-export default App;
+export default Game;
