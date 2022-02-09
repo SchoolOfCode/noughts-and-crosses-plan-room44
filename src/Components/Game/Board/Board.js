@@ -4,21 +4,34 @@ import Square from "./Square/Square";
 // TODO: import Square component, render 9 squares into 3x3 grid✅
 // TODO: take in props (board, make a move)
 
-function Board({ makeaMove }) {
-
+function Board({ squares, onClick }) {
   return (
     <div className="GameBoard">
-      <Square value="1" makeaMove={makeaMove()} />
-      <Square value="2" makeaMove={makeaMove()} />
-      <Square value="3" makeaMove={makeaMove()} />
-      <Square value="4" makeaMove={makeaMove()} />
-      <Square value="5" makeaMove={makeaMove()} />
-      <Square value="6" makeaMove={makeaMove()} />
-      <Square value="7" makeaMove={makeaMove()} />
-      <Square value="8" makeaMove={makeaMove()} />
-      <Square value="9" makeaMove={makeaMove()} />
+    {squares.map((square, index) => (
+      <Square
+        key={index}
+        value={square}
+        onClick={() => onClick()}
+      />
+    ))}
     </div>
   );
 }
 
 export default Board;
+
+      // <div className="RowTop">
+      //   <Square value="1" onClick={() => onClick()} />
+      //   <Square value="2" onClick={() => onClick()} />
+      //   <Square value="3" onClick={() => onClick()} />
+      // </div>
+      // <div className="RowMiddle">
+      //   <Square value="4" onClick={() => onClick()} />
+      //   <Square value="5" onClick={() => onClick()} />
+      //   <Square value="6" onClick={() => onClick()} />
+      // </div>
+      // <div className="RowBottom">
+      //   <Square value="7" onClick={() => onClick()} />
+      //   <Square value="8" onClick={() => onClick()} />
+      //   <Square value="9" onClick={() => onClick()} />
+      // </div>
