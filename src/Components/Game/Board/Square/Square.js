@@ -1,0 +1,13 @@
+import React from 'react'
+
+// TODO: render 1 item for our 3x3 board
+// TODO: take in props (make a move)
+// TODO: render null || X || O
+
+function Square() {
+  return (
+    <div className='BoardSquare'>debug: Square div</div>
+  )
+}
+
+export default Square
