@@ -5,17 +5,18 @@ import Square from "./Square/Square";
 // TODO: take in props (board, make a move)
 
 function Board({ makeaMove }) {
+
   return (
     <div className="GameBoard">
-      <Square value="1" onClick={makeaMove()} />
-      <Square value="2" onClick={makeaMove()} />
-      <Square value="3" onClick={makeaMove()} />
-      <Square value="4" onClick={makeaMove()} />
-      <Square value="5" onClick={makeaMove()} />
-      <Square value="6" onClick={makeaMove()} />
-      <Square value="7" onClick={makeaMove()} />
-      <Square value="8" onClick={makeaMove()} />
-      <Square value="9" onClick={makeaMove()} />
+      <Square value="1" makeaMove={makeaMove()} />
+      <Square value="2" makeaMove={makeaMove()} />
+      <Square value="3" makeaMove={makeaMove()} />
+      <Square value="4" makeaMove={makeaMove()} />
+      <Square value="5" makeaMove={makeaMove()} />
+      <Square value="6" makeaMove={makeaMove()} />
+      <Square value="7" makeaMove={makeaMove()} />
+      <Square value="8" makeaMove={makeaMove()} />
+      <Square value="9" makeaMove={makeaMove()} />
     </div>
   );
 }

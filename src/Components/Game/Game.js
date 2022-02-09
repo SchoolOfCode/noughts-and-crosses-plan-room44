@@ -7,9 +7,13 @@ import TurnDisplay from "./TurnDisplay/TurnDisplay";
 // TODO: render winner if there's one
 
 function Game() {
+  function makeaMove(){
+    console.log("click")
+  };
+
   return (
     <div className="Game">
-      <Board />
+      <Board makeaMove={makeaMove()}/>
       <TurnDisplay />
     </div>
   );

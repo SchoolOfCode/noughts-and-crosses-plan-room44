@@ -4,9 +4,9 @@ import React from 'react'
 // TODO: take in props (make a move)
 // TODO: render null || X || O
 
-function Square() {
+function Square({makeaMove, value}) {
   return (
-    <div className='BoardSquare'>debug: Square div</div>
+    <button className='BoardSquare' makeaMove={makeaMove()}>{value}</button>
   )
 }
 
