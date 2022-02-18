@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Board from "./Board/Board";
-import TurnDisplay from "./TurnDisplay/TurnDisplay";
+// import TurnDisplay from "./TurnDisplay/TurnDisplay";
+import { calculateWinner } from "../winner";
 
 function Game() {
   // initialise states
   const [board, setBoard] = useState(Array(9).fill("null"));
-  const [isXTurn, setIsXTurn] = useState(true);
+  const [isXTurn, setIsXTurn] = useState(false);
+
+  //variable to work out the winner
+  const winner = calculateWinner(board);
 
   // this ternary operator checks if isXTurn and returns the correct value
   const currentPlayer = isXTurn ? "X" : "O";
 
- 
-
   //game logic functions
-  function makeaMove() {
-    console.log("square clicked");
-  }
+  // function makeaMove() {
+  // console.log("square clicked");
+  // }
 
-  function handleSquareClick(index) {
+  const handleSquareClick = (index) => {
+    if (winner || board[index]) {
+      return;
+    }
     // check if there's a winner
     // if (winner) {
     //   return
@@ -27,26 +32,40 @@ function Game() {
     setBoard([
       ...board.slice(0, index),
       currentPlayer,
-      ...board.slice(index + 1)
+      ...board.slice(index + 1),
     ]);
 
     setIsXTurn(!isXTurn); //mirror false to true and viceversa to switch player turn
-  }
- 
-  function reset() {
-    console.log("reset button clicked");
-  }
-
+  };
   return (
-    <div className="Game">
-      <Board squares={board} onClick={() => makeaMove()} />
-      <button onClick={reset}>RESET</button>
-      <TurnDisplay currentPlayer={currentPlayer}/>
-    </div>
+    <>
+      <h1>React Noughts and Crosses - with Hooks</h1>
+      <Board squares={board} onSelectSquare={handleSquareClick} />
+      <div className="info-wrapper">
+        <h3>
+          {winner ? "Winner: " + winner : "Next Player: " + currentPlayer}
+        </h3>
+        {/* <Board squares={board} onSelectSquare={reset} /> */}
+      </div>
+    </>
   );
 }
 
 export default Game;
+//   function reset() {
+//     console.log("reset button clicked");
+
+//     return (
+//       <div className="Game">
+//         <Board squares={board} onClick={() => makeaMove()} />
+//         <button onClick={reset}>RESET</button>
+//         <TurnDisplay currentPlayer={currentPlayer} />
+//       </div>
+//     );
+//   }
+// }
+
+// export default Game;
 
 /*----------------
 NOTES FOR THE TEAM
@@ -65,8 +84,6 @@ NOTES FOR THE TEAM
 // condition ? codeIfTruthy : codeIfFalsey
 // isXTurn is initially true, every variable that is declared has a truthiness to it
 // when isXTurn becomes false, then it will be falsy and the code after colon will execute
-
-
 
 /* 
 let array = ['book1', 'book2', 'book3'] our bookshelf

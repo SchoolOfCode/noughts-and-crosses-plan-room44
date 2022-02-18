@@ -4,14 +4,13 @@ import React from "react";
 // TODO: take in props (make a move)
 // TODO: render null || X || O
 
-function Square({ onClick, value }) {
-    const style = value ? `squares ${value}` : 'squares';
-
+const Square = ({ value, onClick }) => {
+  const style = value ? `squares ${value}` : "squares";
   return (
-    <button className={style} onClick={() => onClick()}>
+    <button className={style} onClick={onClick}>
       {value}
     </button>
   );
-}
+};
 
 export default Square;
